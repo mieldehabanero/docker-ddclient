@@ -38,13 +38,13 @@ RUN \
  fi && \
  mkdir -p \
 	/tmp/ddclient && \
- curl -o \
- /tmp/ddclient.tar.gz -L \
-	"https://github.com/ddclient/ddclient/archive/${DDCLIENT_VERSION}.tar.gz" && \
- tar xf \
- /tmp/ddclient.tar.gz -C \
-	/tmp/ddclient --strip-components=1 && \
- install -Dm755 /tmp/ddclient/ddclient /usr/bin/ && \
+  git clone https://github.com/ddclient/ddclient.git /tmp/ddclient && \
+#  curl -o \
+#  /tmp/ddclient.tar.gz -L \
+# 	"https://github.com/ddclient/ddclient/archive/${DDCLIENT_VERSION}.tar.gz" && \
+#  tar xf \
+#  /tmp/ddclient.tar.gz -C \
+	# /tmp/ddclient --strip-components=1 && \
  mkdir -p /etc/ddclient/ && \
  cp /tmp/ddclient/sample-get-ip-from-fritzbox /etc/ddclient/get-ip-from-fritzbox && \
  echo "**** cleanup ****" && \
